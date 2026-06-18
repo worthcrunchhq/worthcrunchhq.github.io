@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solar Panel Savings &amp; Payback Calculator (2026) — Is Solar Worth It? | WorthCrunch</title>
+<meta name="description" content="Free 2026 solar calculator — updated for the expired federal tax credit. Estimate your system size, cost, payback period, and 25-year savings by state. No email required. See the full math.">
+<link rel="canonical" href="https://istefanov87-svg.github.io/worthcrunch/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Solar Panel Savings &amp; Payback Calculator (2026)">
+<meta property="og:description" content="Is solar still worth it in 2026 after the federal tax credit expired? Estimate cost, payback, and 25-year savings for your state. No email required.">
+<meta property="og:url" content="https://istefanov87-svg.github.io/worthcrunch/">
+<meta property="og:site_name" content="WorthCrunch">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f5a623'/%3E%3Cg stroke='%23f5a623' stroke-width='8' stroke-linecap='round'%3E%3Cline x1='50' y1='6' x2='50' y2='20'/%3E%3Cline x1='50' y1='80' x2='50' y2='94'/%3E%3Cline x1='6' y1='50' x2='20' y2='50'/%3E%3Cline x1='80' y1='50' x2='94' y2='50'/%3E%3Cline x1='19' y1='19' x2='29' y2='29'/%3E%3Cline x1='71' y1='71' x2='81' y2='81'/%3E%3Cline x1='81' y1='19' x2='71' y2='29'/%3E%3Cline x1='29' y1='71' x2='19' y2='81'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/base.css">
+<style>:root{--brand-h:35}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"WorthCrunch Solar Savings Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free client-side calculator estimating solar panel cost, payback period and 25-year savings, updated for 2026 after the federal residential tax credit expired."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is solar worth it in 2026 without the federal tax credit?","acceptedAnswerText":"The 30% federal residential solar tax credit (25D) expired for systems placed in service after December 31, 2025. Solar can still pay off in states with high electricity rates and good sun, but payback periods are now longer for cash and loan purchases. Use the calculator to estimate your specific payback.","acceptedAnswer":{"@type":"Answer","text":"The 30% federal residential solar tax credit (Section 25D) expired for systems placed in service after December 31, 2025. Solar can still pay off in states with high electricity rates and strong sun, but payback periods are now longer for cash and loan purchases. Lease and PPA arrangements may still capture third-party commercial credits through 2027. Use the calculator to estimate your specific payback."}},
+{"@type":"Question","name":"How is the solar payback period calculated?","acceptedAnswer":{"@type":"Answer","text":"Payback period = net system cost divided by your annual electricity savings. We size the system to offset your annual usage, estimate production from your state's peak sun hours, value the offset energy at your electricity rate, then account for 3% annual electricity price inflation and 0.5% annual panel degradation."}},
+{"@type":"Question","name":"Does this calculator require my email?","acceptedAnswer":{"@type":"Answer","text":"No. The calculator runs entirely in your browser, requires no sign-up or email, and shows you all of its assumptions so you can verify the math."}}
+]}]}
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="/worthcrunch/">Worth<b>Crunch</b></a>
+  <nav class="site"><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="about.html">About</a></nav>
+</div></header>
+
+<main class="wrap">
+  <h1>Solar Panel Savings &amp; Payback Calculator (2026)</h1>
+  <p class="lead">Is solar still worth it now that the federal tax credit has expired? Estimate your system size, cost, payback period and 25-year savings — for your state, with every assumption shown. No email required.</p>
+
+  <div class="card tool" id="tool">
+    <div class="row">
+      <div>
+        <label for="state">Your state <span class="hint">(sets sun &amp; electricity rate)</span></label>
+        <select id="state"></select>
+      </div>
+      <div>
+        <label for="billType">Enter your usage as</label>
+        <select id="billType">
+          <option value="bill">Monthly electric bill ($)</option>
+          <option value="kwh">Monthly usage (kWh)</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="amount" id="amountLabel">Average monthly electric bill ($)</label>
+        <input id="amount" type="number" inputmode="decimal" min="0" step="1" value="160">
+      </div>
+      <div>
+        <label for="shading">Roof sun exposure</label>
+        <select id="shading">
+          <option value="good">Good — little/no shade, south-facing</option>
+          <option value="average" selected>Average — some shade</option>
+          <option value="poor">Poor — significant shade</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="method">How you'd pay</label>
+        <select id="method">
+          <option value="cash">Cash purchase</option>
+          <option value="loan">Solar loan</option>
+          <option value="lease">Lease / PPA ($0 down)</option>
+        </select>
+      </div>
+    </div>
+
+    <details id="advanced" style="margin-top:14px">
+      <summary class="small muted" style="cursor:pointer">Advanced assumptions (all editable)</summary>
+      <div class="row" style="margin-top:10px">
+        <div><label for="rate" class="small">Electricity rate ($/kWh)</label><input id="rate" type="number" step="0.001" min="0"></div>
+        <div><label for="cpw" class="small">Install cost ($/watt)</label><input id="cpw" type="number" step="0.05" min="0"></div>
+        <div><label for="incent" class="small">State/local incentives ($)</label><input id="incent" type="number" step="50" min="0" value="0"></div>
+      </div>
+    </details>
+
+    <div style="margin-top:18px"><button id="calc">Calculate my solar savings →</button></div>
+
+    <div id="results" hidden></div>
+  </div>
+
+  <p class="small muted">Estimates are approximate and for educational purposes only — not financial advice. Data as of 2026. Always get itemized local quotes before deciding.</p>
+
+  <article id="how">
+    <h2>How this solar calculator works</h2>
+    <p>Most solar calculators online still assume the 30% federal tax credit. That credit — the residential Clean Energy Credit (Section 25D) — <strong>expired for systems placed in service after December 31, 2025</strong>. This calculator is built for the 2026 reality, so the numbers you see reflect what cash and loan buyers actually pay today.</p>
+    <p>Here's the math, with nothing hidden:</p>
+    <ul>
+      <li><strong>Production</strong> = system size (kW) × your state's peak sun hours × 365 days × 0.83 system-loss derate × your shading factor.</li>
+      <li><strong>System size</strong> is set to offset roughly 100% of your annual electricity use.</li>
+      <li><strong>Gross cost</strong> = size × $/watt (national average ≈ $2.85/W, editable).</li>
+      <li><strong>Net cost</strong> = gross cost − federal credit (now $0 for cash/loan in 2026) − any state/local incentives you enter.</li>
+      <li><strong>Annual savings</strong> = energy offset valued at your electricity rate, then grown 3%/yr for rising utility prices and reduced 0.5%/yr for panel aging.</li>
+      <li><strong>Payback period</strong> = the year your cumulative savings finally exceed your net cost.</li>
+    </ul>
+    <p>Everything above is editable in the “Advanced assumptions” panel. If you don't trust an input, change it — that's the point.</p>
+
+    <h2 id="worth">Is solar worth it in 2026?</h2>
+    <p>Short answer: it depends far more on <em>where you live</em> than it used to. With the federal credit gone for purchases, the two levers that decide whether solar pays off are your <strong>electricity rate</strong> and your <strong>sun</strong>:</p>
+    <ul>
+      <li><strong>Strong case:</strong> high-rate, sunny states like California, Hawaii, Massachusetts, Arizona and Nevada — payback can still land in a reasonable window.</li>
+      <li><strong>Weaker case:</strong> low-rate states (Washington, Utah, North Dakota, Louisiana) where cheap power means solar takes much longer to pay back.</li>
+      <li><strong>Lease / PPA:</strong> with $0 down, the third-party owner may still claim a commercial credit through 2027, so this path can offer day-one savings without the long payback — but you don't own the asset or capture its full value.</li>
+    </ul>
+    <p>Run your own numbers above — the calculator shows the cash/loan and lease/PPA outcomes side by side.</p>
+  </article>
+
+  <article class="faq" id="faq">
+    <h2>Frequently asked questions</h2>
+    <h3>Is solar worth it in 2026 without the federal tax credit?</h3>
+    <p>The 30% residential credit (25D) expired for systems placed in service after Dec 31, 2025. Solar can still pay off in high-rate, sunny states, but cash/loan payback periods are now longer. Lease/PPA deals may still capture third-party credits through 2027. The calculator estimates your specific case.</p>
+    <h3>How accurate is this estimate?</h3>
+    <p>It's a transparent ballpark, not a roof-level engineering quote. It uses state-average sun and electricity rates (both editable). For a binding number, get itemized local installer quotes — but use this first so you know whether those quotes are reasonable.</p>
+    <h3>Do you require my email or store my data?</h3>
+    <p>No. Everything runs in your browser. Nothing is uploaded, and there's no sign-up. You can even share your result via a link — your inputs are encoded in the URL, not saved on a server.</p>
+    <h3>What's a good solar payback period?</h3>
+    <p>Many homeowners aim for under ~10–12 years so the system pays for itself well within its 25+ year life. After the federal credit's expiry, watch this number closely in low-rate states.</p>
+  </article>
+
+  <article>
+    <h2>Methodology &amp; data sources</h2>
+    <p class="small muted">Peak sun hours are annual daily averages by state. Electricity rates are approximate average residential prices (USD/kWh). Install cost defaults to a national average of ~$2.85/watt. Assumptions: 0.83 system-loss derate, 3%/yr electricity price escalation, 0.5%/yr panel degradation, 0.85 lb CO₂/kWh grid average, 25-year horizon. Federal residential credit (25D) modeled at 0% for cash/loan systems placed in service in 2026 per current law. All figures are estimates; verify with local quotes. Data reviewed 2026.</p>
+  </article>
+</main>
+
+<footer class="site"><div class="wrap">
+  <p><a class="logo" href="/worthcrunch/">Worth<b>Crunch</b></a> — run the numbers before you spend.</p>
+  <p class="small"><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · Estimates only, not financial advice. © 2026 WorthCrunch.</p>
+</div></footer>
+
+<script src="assets/solar.js"></script>
+<script>
+(function(){
+  var S = window.WC_SOLAR;
+  var $ = function(id){ return document.getElementById(id); };
+  var stateSel=$("state"), billType=$("billType"), amount=$("amount"), amtLabel=$("amountLabel"),
+      shading=$("shading"), method=$("method"), rate=$("rate"), cpw=$("cpw"), incent=$("incent"),
+      results=$("results");
+
+  // Populate states
+  Object.keys(S.STATE_NAMES).sort(function(a,b){return S.STATE_NAMES[a].localeCompare(S.STATE_NAMES[b]);})
+    .forEach(function(code){
+      var o=document.createElement("option"); o.value=code; o.textContent=S.STATE_NAMES[code];
+      stateSel.appendChild(o);
+    });
+  stateSel.value="CA";
+
+  function syncRateDefault(){ rate.value = S.STATE_DATA[stateSel.value][1].toFixed(3); }
+  function syncAmountLabel(){
+    amtLabel.textContent = billType.value==="bill" ? "Average monthly electric bill ($)" : "Average monthly usage (kWh)";
+  }
+  cpw.value = S.DEFAULTS.costPerWatt.toFixed(2);
+  syncRateDefault(); syncAmountLabel();
+  stateSel.addEventListener("change", syncRateDefault);
+  billType.addEventListener("change", syncAmountLabel);
+
+  function readInputs(){
+    var code=stateSel.value, d=S.STATE_DATA[code];
+    var r=parseFloat(rate.value)||d[1];
+    var annualUsage;
+    var amt=parseFloat(amount.value)||0;
+    if(billType.value==="bill"){ annualUsage=(amt/r)*12; } else { annualUsage=amt*12; }
+    return {
+      state:code, peakSunHours:d[0], rate:r, annualUsageKwh:annualUsage,
+      shading:shading.value, method:method.value,
+      costPerWatt:parseFloat(cpw.value)||S.DEFAULTS.costPerWatt,
+      otherIncentives:parseFloat(incent.value)||0
+    };
+  }
+
+  function chart(timeline){
+    var w=600,h=140,pad=4, n=timeline.length;
+    var vals=timeline.map(function(t){return t.net;});
+    var min=Math.min(0,Math.min.apply(null,vals)), max=Math.max.apply(null,vals);
+    var span=(max-min)||1, zeroY=h-pad-((0-min)/span)*(h-2*pad), bw=(w-2*pad)/n;
+    var bars=timeline.map(function(t,i){
+      var x=pad+i*bw, val=t.net, y=h-pad-((val-min)/span)*(h-2*pad);
+      var top=Math.min(y,zeroY), ht=Math.abs(y-zeroY);
+      var col= val>=0 ? "var(--brand)" : "var(--border)";
+      return '<rect x="'+(x+1).toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+(bw-2).toFixed(1)+'" height="'+Math.max(1,ht).toFixed(1)+'" fill="'+col+'"><title>Year '+t.year+': '+S.fmt$(val)+'</title></rect>';
+    }).join("");
+    return '<svg viewBox="0 0 '+w+' '+h+'" width="100%" role="img" aria-label="Cumulative net savings by year">'+
+      bars+'<line x1="'+pad+'" y1="'+zeroY.toFixed(1)+'" x2="'+(w-pad)+'" y2="'+zeroY.toFixed(1)+'" stroke="var(--muted)" stroke-dasharray="3 3"/></svg>';
+  }
+
+  function render(inp,res){
+    var payback = res.paybackYear ? S.fmt1(res.paybackYear)+" years" : "Not within 25 years";
+    var leaseRow = '<div class="kv"><span class="k">Lease / PPA — est. year-1 savings</span><span class="v">'+S.fmt$(res.lease.annual)+'/yr</span></div>'+
+                   '<div class="kv"><span class="k">Lease / PPA — est. 25-year savings</span><span class="v">'+S.fmt$(res.lease.total25)+'</span></div>';
+    var html =
+      '<div class="result">'+
+        '<div class="small muted">Estimated solar payback period</div>'+
+        '<div class="big">'+payback+'</div>'+
+        '<div style="margin-top:14px">'+chart(res.timeline)+'</div>'+
+        '<div class="small muted" style="text-align:center">Cumulative net position over 25 years (break-even = bars turn '+'<span style="color:var(--brand-ink);font-weight:600">gold</span>)</div>'+
+      '</div>'+
+      '<div style="margin-top:16px">'+
+        '<div class="kv"><span class="k">Recommended system size</span><span class="v">'+S.fmt1(res.systemKw)+' kW</span></div>'+
+        '<div class="kv"><span class="k">Estimated production</span><span class="v">'+Math.round(res.annualProduction).toLocaleString()+' kWh/yr</span></div>'+
+        '<div class="kv"><span class="k">Gross install cost</span><span class="v">'+S.fmt$(res.grossCost)+'</span></div>'+
+        '<div class="kv"><span class="k">Federal tax credit (2026)</span><span class="v">'+(res.federal>0?S.fmt$(res.federal):'$0 — expired')+'</span></div>'+
+        (res.otherIncentives>0?'<div class="kv"><span class="k">State/local incentives</span><span class="v">−'+S.fmt$(res.otherIncentives)+'</span></div>':'')+
+        '<div class="kv"><span class="k">Net cost (cash/loan)</span><span class="v">'+S.fmt$(res.netCost)+'</span></div>'+
+        '<div class="kv"><span class="k">Year-1 savings</span><span class="v">'+S.fmt$(res.year1Savings)+'</span></div>'+
+        '<div class="kv"><span class="k">25-year net savings</span><span class="v" style="color:'+(res.netLifetime>=0?'var(--brand-ink)':'inherit')+'">'+S.fmt$(res.netLifetime)+'</span></div>'+
+        '<div class="kv"><span class="k">CO₂ avoided (25 yr)</span><span class="v">'+S.fmt1(res.co2Tons)+' tons</span></div>'+
+        leaseRow+
+      '</div>'+
+      '<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">'+
+        '<a class="btn" id="quotesBtn" href="#" rel="nofollow sponsored noopener" target="_blank">Compare free local quotes →</a>'+
+        '<button class="btn-ghost" id="shareBtn" type="button">Copy shareable link</button>'+
+      '</div>'+
+      '<p class="small muted" style="margin-top:10px">Tip: high electricity rates + strong sun = faster payback. Try toggling “How you’d pay” to compare buying vs. lease/PPA.</p>';
+    results.innerHTML=html;
+    results.hidden=false;
+
+    var qb=$("quotesBtn");
+    qb.addEventListener("click",function(e){
+      // Affiliate link placeholder — replaced once a solar lead program is approved.
+      if(qb.getAttribute("href")==="#"){ e.preventDefault();
+        alert("Quote comparison partner coming soon. For now, get 3+ local installer quotes and plug their $/watt into the Advanced panel."); }
+    });
+    $("shareBtn").addEventListener("click",function(){
+      var p=new URLSearchParams({s:inp.state,b:billType.value,a:amount.value,sh:inp.shading,m:inp.method});
+      var url=location.origin+location.pathname+"?"+p.toString();
+      navigator.clipboard && navigator.clipboard.writeText(url);
+      this.textContent="Link copied ✓"; var self=this; setTimeout(function(){self.textContent="Copy shareable link";},1800);
+      history.replaceState(null,"","?"+p.toString());
+    });
+  }
+
+  function run(){ var inp=readInputs(); if(inp.annualUsageKwh<=0){return;} render(inp,S.calculate(inp)); }
+  $("calc").addEventListener("click",run);
+
+  // Restore from shared URL
+  var q=new URLSearchParams(location.search);
+  if(q.get("s")&&S.STATE_DATA[q.get("s")]){
+    stateSel.value=q.get("s"); syncRateDefault();
+    if(q.get("b")){billType.value=q.get("b"); syncAmountLabel();}
+    if(q.get("a")){amount.value=q.get("a");}
+    if(q.get("sh")){shading.value=q.get("sh");}
+    if(q.get("m")){method.value=q.get("m");}
+    run();
+  }
+})();
+</script>
+</body>
+</html>
