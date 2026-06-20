@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://istefanov87-svg.github.io/worthcrunch/sitemap.xml
+Sitemap: https://worthcrunchhq.github.io/sitemap.xml

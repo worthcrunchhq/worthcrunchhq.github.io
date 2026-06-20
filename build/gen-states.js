@@ -10,7 +10,7 @@ global.window = {};
 eval(fs.readFileSync(path.join(__dirname, "..", "assets", "solar.js"), "utf8"));
 const S = global.window.WC_SOLAR;
 
-const BASE = "https://istefanov87-svg.github.io/worthcrunch";
+const BASE = "https://worthcrunchhq.github.io";
 const EXAMPLE_USAGE = 10800; // kWh/yr — representative US single-family home
 const today = "2026-06-19";
 
@@ -82,11 +82,11 @@ function page(code) {
 </script>
 </head><body>
 <header class="site"><div class="wrap">
-<a class="logo" href="/worthcrunch/">Worth<b>Crunch</b></a>
-<nav class="site"><a href="/worthcrunch/">Calculator</a><a href="../">By state</a></nav>
+<a class="logo" href="/">Worth<b>Crunch</b></a>
+<nav class="site"><a href="/">Calculator</a><a href="../">By state</a></nav>
 </div></header>
 <main class="wrap">
-<p class="small muted"><a href="/worthcrunch/">Home</a> › <a href="../">Solar by state</a> › ${name}</p>
+<p class="small muted"><a href="/">Home</a> › <a href="../">Solar by state</a> › ${name}</p>
 <h1>Is Solar Worth It in ${name} in 2026?</h1>
 <p class="lead">${verdictPara}</p>
 
@@ -122,10 +122,10 @@ function page(code) {
 ${faq.map(([q,a])=>`<h3>${q}</h3><p>${a}</p>`).join("\n")}
 </article>
 
-<p class="small muted">Estimates only, not financial advice. Figures use state-average data and the assumptions on our <a href="/worthcrunch/#how">methodology</a>. Always confirm with itemized local quotes.</p>
+<p class="small muted">Estimates only, not financial advice. Figures use state-average data and the assumptions on our <a href="/#how">methodology</a>. Always confirm with itemized local quotes.</p>
 <p class="small">Compare nearby states: ${relatedLinks(code, S.STATE_NAMES)}</p>
 </main>
-<footer class="site"><div class="wrap"><p class="small"><a href="/worthcrunch/">Calculator</a> · <a href="../">Solar by state</a> · <a href="/worthcrunch/about.html">About</a> · © 2026 WorthCrunch.</p></div></footer>
+<footer class="site"><div class="wrap"><p class="small"><a href="/">Calculator</a> · <a href="../">Solar by state</a> · <a href="/about.html">About</a> · © 2026 WorthCrunch.</p></div></footer>
 </body></html>`;
 }
 
@@ -149,8 +149,8 @@ function hub() {
 <link rel="stylesheet" href="../assets/base.css"><style>:root{--brand-h:35}</style>
 </head><body>
 <header class="site"><div class="wrap">
-<a class="logo" href="/worthcrunch/">Worth<b>Crunch</b></a>
-<nav class="site"><a href="/worthcrunch/">Calculator</a><a href="/worthcrunch/about.html">About</a></nav>
+<a class="logo" href="/">Worth<b>Crunch</b></a>
+<nav class="site"><a href="/">Calculator</a><a href="/about.html">About</a></nav>
 </div></header>
 <main class="wrap">
 <h1>Is solar worth it in your state? (2026)</h1>
@@ -162,7 +162,7 @@ function hub() {
 ${tr}
 </tbody>
 </table>
-<p class="small muted" style="margin-top:12px">More states added regularly. <a href="/worthcrunch/">Run your exact numbers in the calculator →</a></p>
+<p class="small muted" style="margin-top:12px">More states added regularly. <a href="/">Run your exact numbers in the calculator →</a></p>
 </div>
 <div class="card" style="margin-top:20px">
 <h2 style="margin-top:0">Start here: the 2026 tax-credit change</h2>
@@ -170,7 +170,7 @@ ${tr}
 </div>
 <p class="small muted">Estimates only, not financial advice. Based on state-average data; confirm with local quotes.</p>
 </main>
-<footer class="site"><div class="wrap"><p class="small"><a href="/worthcrunch/">Calculator</a> · <a href="/worthcrunch/about.html">About</a> · © 2026 WorthCrunch.</p></div></footer>
+<footer class="site"><div class="wrap"><p class="small"><a href="/">Calculator</a> · <a href="/about.html">About</a> · © 2026 WorthCrunch.</p></div></footer>
 </body></html>`;
 }
 
