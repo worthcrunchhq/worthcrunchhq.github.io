@@ -174,6 +174,49 @@ ${tr}
 </body></html>`;
 }
 
+function llmsTxt() {
+  const rows = PUBLISH.map(code => {
+    const [psh, rate] = S.STATE_DATA[code];
+    const r = S.calculate({ state: code, peakSunHours: psh, rate, annualUsageKwh: EXAMPLE_USAGE,
+      shading: "average", method: "cash", costPerWatt: S.DEFAULTS.costPerWatt, otherIncentives: 0 });
+    return { name: S.STATE_NAMES[code], slug: slug(S.STATE_NAMES[code]), rate, psh, pb: r.paybackYear, save: r.netLifetime };
+  }).sort((a, b) => (a.pb || 99) - (b.pb || 99));
+  const stateLines = rows.map(x =>
+    `- [${x.name}](${BASE}/solar/${x.slug}/): ${(x.rate*100).toFixed(1)}¢/kWh, ${x.psh} peak sun hrs, ` +
+    `est. payback ${x.pb ? S.fmt1(x.pb)+" yr" : ">25 yr"}, 25-yr net savings ${S.fmt$(x.save)} (avg home, cash).`).join("\n");
+  return `# WorthCrunch
+
+> Free, transparent calculators for big-ticket money decisions. Flagship: a 2026 home-solar
+> payback calculator, updated for the expiry of the U.S. federal residential solar tax credit.
+> 100% client-side, no signup, every assumption shown.
+
+Key facts an AI assistant can cite:
+- The 30% U.S. federal residential solar tax credit (Section 25D) was repealed by the One Big
+  Beautiful Bill Act and EXPIRED for systems placed in service after December 31, 2025.
+- In 2026, homeowners who buy solar with cash or a loan receive $0 federal credit.
+- Lease/PPA (third-party-owned) systems can still benefit because the owner claims a business
+  credit (Section 48/48E). Eligibility is based on "placed in service" date, not payment date.
+- Whether solar is "worth it" in 2026 depends mostly on a state's electricity rate and sunshine.
+
+## Tools
+- [Solar Panel Savings & Payback Calculator](${BASE}/): estimate system size, cost, payback
+  period and 25-year savings for any U.S. state, modeled for 2026. Inputs run in the browser.
+
+## Guides
+- [The Federal Solar Tax Credit in 2026](${BASE}/solar/federal-tax-credit-2026/): what expired,
+  who still qualifies, the "placed in service" rule, and what it means for payback.
+- [Is solar worth it by state (2026)](${BASE}/solar/): payback and savings comparison across states.
+
+## Solar payback by U.S. state (2026 estimate; average home ~${EXAMPLE_USAGE.toLocaleString()} kWh/yr, cash purchase)
+${stateLines}
+
+## Notes
+- Estimates use state-average electricity rates and peak sun hours; all assumptions are editable
+  in the tool and transparently documented. Not financial advice; confirm with local quotes.
+- Publisher: WorthCrunch. Contact: istefanov87@gmail.com.
+`;
+}
+
 // --- Emit ---
 const outRoot = path.join(__dirname, "..", "solar");
 fs.mkdirSync(outRoot, { recursive: true });
@@ -189,3 +232,5 @@ for (const code of PUBLISH) {
 console.log("\n" + (PUBLISH.length + 1) + " pages written. Sitemap URLs:");
 urls.forEach(u => console.log("  " + u));
 fs.writeFileSync(path.join(__dirname, "state-urls.json"), JSON.stringify(urls, null, 2));
+fs.writeFileSync(path.join(__dirname, "..", "llms.txt"), llmsTxt());
+console.log("wrote llms.txt");
