@@ -78,7 +78,10 @@ function page(code) {
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f5a623'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="../../assets/base.css"><style>:root{--brand-h:35}</style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[${faq.map(([q,a])=>`{"@type":"Question","name":${JSON.stringify(q)},"acceptedAnswer":{"@type":"Answer","text":${JSON.stringify(a)}}}`).join(",")}]}
+{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${BASE}/"},{"@type":"ListItem","position":2,"name":"Solar by state","item":"${BASE}/solar/"},{"@type":"ListItem","position":3,"name":${JSON.stringify(name)},"item":"${BASE}/solar/${slug(name)}/"}]},
+{"@type":"FAQPage","mainEntity":[${faq.map(([q,a])=>`{"@type":"Question","name":${JSON.stringify(q)},"acceptedAnswer":{"@type":"Answer","text":${JSON.stringify(a)}}}`).join(",")}]}
+]}
 </script>
 </head><body>
 <header class="site"><div class="wrap">
@@ -147,6 +150,9 @@ function hub() {
 <meta name="robots" content="index,follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f5a623'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/base.css"><style>:root{--brand-h:35}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${BASE}/"},{"@type":"ListItem","position":2,"name":"Solar by state","item":"${BASE}/solar/"}]}
+</script>
 </head><body>
 <header class="site"><div class="wrap">
 <a class="logo" href="/">Worth<b>Crunch</b></a>
