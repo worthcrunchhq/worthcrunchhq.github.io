@@ -171,8 +171,11 @@ ${tr}
 <p class="small muted" style="margin-top:12px">More states added regularly. <a href="/">Run your exact numbers in the calculator →</a></p>
 </div>
 <div class="card" style="margin-top:20px">
-<h2 style="margin-top:0">Start here: the 2026 tax-credit change</h2>
-<p>The 30% federal solar tax credit expired at the end of 2025 — and it changes the math in every state above. <a href="federal-tax-credit-2026/">Read what expired, who still qualifies, and what it means for your payback →</a></p>
+<h2 style="margin-top:0">Solar guides</h2>
+<ul style="margin:0">
+<li><a href="federal-tax-credit-2026/">The 2026 federal solar tax credit</a> — what expired, who still qualifies, and what it means for your payback.</li>
+<li><a href="lease-vs-buy-2026/">Lease vs buy vs PPA in 2026</a> — which way to go solar now that buyers lost the credit.</li>
+</ul>
 </div>
 <p class="small muted">Estimates only, not financial advice. Based on state-average data; confirm with local quotes.</p>
 </main>
