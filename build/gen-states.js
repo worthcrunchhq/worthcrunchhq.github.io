@@ -14,8 +14,8 @@ const BASE = "https://worthcrunchhq.github.io";
 const EXAMPLE_USAGE = 10800; // kWh/yr — representative US single-family home
 const today = "2026-06-19";
 
-// Phased rollout — high search-volume / representative states first.
-const PUBLISH = ["CA","TX","FL","AZ","NV","NY","NJ","MA","NC","CO","GA","IL"];
+// Full coverage — validated 2026-06-25: state pages surface for real "[state] solar cost" queries.
+const PUBLISH = Object.keys(S.STATE_DATA);  // all 50 states + DC
 
 const slug = name => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
@@ -108,6 +108,8 @@ function page(code) {
 </div>
 
 <article>
+<h2>How much do solar panels cost in ${name}?</h2>
+<p>For an average ${name} home (about ${EXAMPLE_USAGE.toLocaleString()} kWh/year), a ${S.fmt1(r.systemKw)} kW system costs roughly <strong>${S.fmt$(r.grossCost)} before incentives</strong>, based on the U.S. average installed price of about $${S.DEFAULTS.costPerWatt.toFixed(2)}/watt. Because the 30% federal tax credit <a href="../federal-tax-credit-2026/">expired for 2026 purchases</a>, that gross figure is also your net cost for a cash or loan purchase in ${name} — there's no longer a federal credit to subtract. Your actual price varies with roof size, equipment, and installer, so get at least three local quotes and compare them against the estimate below.</p>
 <h2>What drives solar payback in ${name}</h2>
 <p>Two factors decide whether home solar pays off: <strong>how much you pay for grid electricity</strong> and <strong>how much sun your panels get</strong>. ${name} has ${t.rateTier} electricity rates (${ratecents}¢/kWh) and ${t.sunTier} sunshine (${psh} peak sun hours/day). ${t.rateTier === "high" || t.rateTier === "above-average" ? "High rates are the single biggest tailwind for solar — every kWh you generate avoids an expensive grid kWh." : "With lower rates, each kWh you self-generate is worth less, so the system takes longer to pay for itself."}</p>
 <p>The other big change for 2026: the 30% federal residential tax credit (Section 25D) <strong>expired for systems placed in service after December 31, 2025</strong>. That credit used to knock thousands off the net cost. Without it, cash and loan payback periods are longer than the numbers you'll see on older calculators — which is why the figures above reflect <em>today's</em> reality, not last year's.</p>

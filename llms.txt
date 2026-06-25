@@ -22,18 +22,57 @@ Key facts an AI assistant can cite:
 - [Is solar worth it by state (2026)](https://worthcrunchhq.github.io/solar/): payback and savings comparison across states.
 
 ## Solar payback by U.S. state (2026 estimate; average home ~10,800 kWh/yr, cash purchase)
+- [Hawaii](https://worthcrunchhq.github.io/solar/hawaii/): 41.0¢/kWh, 5.8 peak sun hrs, est. payback 4.2 yr, 25-yr net savings $131,493 (avg home, cash).
 - [California](https://worthcrunchhq.github.io/solar/california/): 31.0¢/kWh, 5.5 peak sun hrs, est. payback 5.8 yr, 25-yr net savings $93,613 (avg home, cash).
 - [Massachusetts](https://worthcrunchhq.github.io/solar/massachusetts/): 30.0¢/kWh, 4 peak sun hrs, est. payback 8 yr, 25-yr net savings $82,234 (avg home, cash).
+- [Connecticut](https://worthcrunchhq.github.io/solar/connecticut/): 28.0¢/kWh, 4 peak sun hrs, est. payback 8.5 yr, 25-yr net savings $74,870 (avg home, cash).
+- [Rhode Island](https://worthcrunchhq.github.io/solar/rhode-island/): 28.0¢/kWh, 4 peak sun hrs, est. payback 8.5 yr, 25-yr net savings $74,870 (avg home, cash).
 - [Nevada](https://worthcrunchhq.github.io/solar/nevada/): 15.0¢/kWh, 6.3 peak sun hrs, est. payback 9.9 yr, 25-yr net savings $37,309 (avg home, cash).
 - [Arizona](https://worthcrunchhq.github.io/solar/arizona/): 14.5¢/kWh, 6.5 peak sun hrs, est. payback 9.9 yr, 25-yr net savings $36,020 (avg home, cash).
+- [Maine](https://worthcrunchhq.github.io/solar/maine/): 23.0¢/kWh, 4 peak sun hrs, est. payback 10.1 yr, 25-yr net savings $56,461 (avg home, cash).
+- [New Hampshire](https://worthcrunchhq.github.io/solar/new-hampshire/): 23.0¢/kWh, 4 peak sun hrs, est. payback 10.1 yr, 25-yr net savings $56,461 (avg home, cash).
+- [New Mexico](https://worthcrunchhq.github.io/solar/new-mexico/): 14.0¢/kWh, 6.5 peak sun hrs, est. payback 10.2 yr, 25-yr net savings $34,179 (avg home, cash).
 - [New York](https://worthcrunchhq.github.io/solar/new-york/): 23.0¢/kWh, 3.8 peak sun hrs, est. payback 10.6 yr, 25-yr net savings $54,975 (avg home, cash).
 - [Colorado](https://worthcrunchhq.github.io/solar/colorado/): 15.0¢/kWh, 5.5 peak sun hrs, est. payback 11.1 yr, 25-yr net savings $34,703 (avg home, cash).
+- [Vermont](https://worthcrunchhq.github.io/solar/vermont/): 21.0¢/kWh, 3.9 peak sun hrs, est. payback 11.2 yr, 25-yr net savings $48,373 (avg home, cash).
 - [Texas](https://worthcrunchhq.github.io/solar/texas/): 15.0¢/kWh, 5.3 peak sun hrs, est. payback 11.5 yr, 25-yr net savings $33,928 (avg home, cash).
 - [Florida](https://worthcrunchhq.github.io/solar/florida/): 14.5¢/kWh, 5.3 peak sun hrs, est. payback 11.9 yr, 25-yr net savings $32,087 (avg home, cash).
+- [Maryland](https://worthcrunchhq.github.io/solar/maryland/): 17.5¢/kWh, 4.3 peak sun hrs, est. payback 12.1 yr, 25-yr net savings $38,179 (avg home, cash).
+- [Alaska](https://worthcrunchhq.github.io/solar/alaska/): 24.5¢/kWh, 3 peak sun hrs, est. payback 12.3 yr, 25-yr net savings $52,576 (avg home, cash).
 - [New Jersey](https://worthcrunchhq.github.io/solar/new-jersey/): 17.5¢/kWh, 4.2 peak sun hrs, est. payback 12.3 yr, 25-yr net savings $37,554 (avg home, cash).
+- [Delaware](https://worthcrunchhq.github.io/solar/delaware/): 16.5¢/kWh, 4.3 peak sun hrs, est. payback 12.7 yr, 25-yr net savings $34,498 (avg home, cash).
+- [Michigan](https://worthcrunchhq.github.io/solar/michigan/): 18.5¢/kWh, 3.8 peak sun hrs, est. payback 12.8 yr, 25-yr net savings $38,407 (avg home, cash).
+- [Kansas](https://worthcrunchhq.github.io/solar/kansas/): 14.0¢/kWh, 5 peak sun hrs, est. payback 12.9 yr, 25-yr net savings $28,968 (avg home, cash).
+- [Alabama](https://worthcrunchhq.github.io/solar/alabama/): 15.5¢/kWh, 4.5 peak sun hrs, est. payback 12.9 yr, 25-yr net savings $31,982 (avg home, cash).
+- [South Carolina](https://worthcrunchhq.github.io/solar/south-carolina/): 14.5¢/kWh, 4.8 peak sun hrs, est. payback 12.9 yr, 25-yr net savings $29,869 (avg home, cash).
 - [Georgia](https://worthcrunchhq.github.io/solar/georgia/): 14.0¢/kWh, 4.8 peak sun hrs, est. payback 13.3 yr, 25-yr net savings $28,028 (avg home, cash).
+- [Washington D.C.](https://worthcrunchhq.github.io/solar/washington-d-c/): 16.0¢/kWh, 4.2 peak sun hrs, est. payback 13.3 yr, 25-yr net savings $32,032 (avg home, cash).
+- [Pennsylvania](https://worthcrunchhq.github.io/solar/pennsylvania/): 17.0¢/kWh, 3.9 peak sun hrs, est. payback 13.5 yr, 25-yr net savings $33,646 (avg home, cash).
+- [Wisconsin](https://worthcrunchhq.github.io/solar/wisconsin/): 16.5¢/kWh, 4 peak sun hrs, est. payback 13.5 yr, 25-yr net savings $32,529 (avg home, cash).
 - [Illinois](https://worthcrunchhq.github.io/solar/illinois/): 16.0¢/kWh, 4 peak sun hrs, est. payback 13.9 yr, 25-yr net savings $30,688 (avg home, cash).
+- [Virginia](https://worthcrunchhq.github.io/solar/virginia/): 14.5¢/kWh, 4.4 peak sun hrs, est. payback 13.9 yr, 25-yr net savings $27,730 (avg home, cash).
 - [North Carolina](https://worthcrunchhq.github.io/solar/north-carolina/): 13.5¢/kWh, 4.7 peak sun hrs, est. payback 14 yr, 25-yr net savings $25,686 (avg home, cash).
+- [Wyoming](https://worthcrunchhq.github.io/solar/wyoming/): 12.5¢/kWh, 5 peak sun hrs, est. payback 14.2 yr, 25-yr net savings $23,446 (avg home, cash).
+- [Oklahoma](https://worthcrunchhq.github.io/solar/oklahoma/): 12.0¢/kWh, 5.2 peak sun hrs, est. payback 14.2 yr, 25-yr net savings $22,473 (avg home, cash).
+- [Minnesota](https://worthcrunchhq.github.io/solar/minnesota/): 14.5¢/kWh, 4.2 peak sun hrs, est. payback 14.5 yr, 25-yr net savings $26,509 (avg home, cash).
+- [Ohio](https://worthcrunchhq.github.io/solar/ohio/): 15.5¢/kWh, 3.9 peak sun hrs, est. payback 14.6 yr, 25-yr net savings $28,123 (avg home, cash).
+- [Indiana](https://worthcrunchhq.github.io/solar/indiana/): 15.0¢/kWh, 4 peak sun hrs, est. payback 14.7 yr, 25-yr net savings $27,006 (avg home, cash).
+- [Mississippi](https://worthcrunchhq.github.io/solar/mississippi/): 13.0¢/kWh, 4.6 peak sun hrs, est. payback 14.7 yr, 25-yr net savings $23,323 (avg home, cash).
+- [South Dakota](https://worthcrunchhq.github.io/solar/south-dakota/): 13.0¢/kWh, 4.6 peak sun hrs, est. payback 14.7 yr, 25-yr net savings $23,323 (avg home, cash).
+- [Utah](https://worthcrunchhq.github.io/solar/utah/): 11.0¢/kWh, 5.3 peak sun hrs, est. payback 15 yr, 25-yr net savings $19,201 (avg home, cash).
+- [Tennessee](https://worthcrunchhq.github.io/solar/tennessee/): 13.0¢/kWh, 4.4 peak sun hrs, est. payback 15.3 yr, 25-yr net savings $22,208 (avg home, cash).
+- [Iowa](https://worthcrunchhq.github.io/solar/iowa/): 13.5¢/kWh, 4.2 peak sun hrs, est. payback 15.4 yr, 25-yr net savings $22,827 (avg home, cash).
+- [Louisiana](https://worthcrunchhq.github.io/solar/louisiana/): 12.0¢/kWh, 4.7 peak sun hrs, est. payback 15.4 yr, 25-yr net savings $20,163 (avg home, cash).
+- [Arkansas](https://worthcrunchhq.github.io/solar/arkansas/): 12.5¢/kWh, 4.5 peak sun hrs, est. payback 15.5 yr, 25-yr net savings $20,937 (avg home, cash).
+- [Montana](https://worthcrunchhq.github.io/solar/montana/): 12.5¢/kWh, 4.5 peak sun hrs, est. payback 15.5 yr, 25-yr net savings $20,937 (avg home, cash).
+- [West Virginia](https://worthcrunchhq.github.io/solar/west-virginia/): 14.0¢/kWh, 3.9 peak sun hrs, est. payback 15.9 yr, 25-yr net savings $22,600 (avg home, cash).
+- [Idaho](https://worthcrunchhq.github.io/solar/idaho/): 11.5¢/kWh, 4.7 peak sun hrs, est. payback 16 yr, 25-yr net savings $18,322 (avg home, cash).
+- [Nebraska](https://worthcrunchhq.github.io/solar/nebraska/): 11.5¢/kWh, 4.7 peak sun hrs, est. payback 16 yr, 25-yr net savings $18,322 (avg home, cash).
+- [Missouri](https://worthcrunchhq.github.io/solar/missouri/): 12.0¢/kWh, 4.5 peak sun hrs, est. payback 16 yr, 25-yr net savings $19,096 (avg home, cash).
+- [Kentucky](https://worthcrunchhq.github.io/solar/kentucky/): 12.5¢/kWh, 4.2 peak sun hrs, est. payback 16.4 yr, 25-yr net savings $19,145 (avg home, cash).
+- [Oregon](https://worthcrunchhq.github.io/solar/oregon/): 13.0¢/kWh, 4 peak sun hrs, est. payback 16.5 yr, 25-yr net savings $19,642 (avg home, cash).
+- [North Dakota](https://worthcrunchhq.github.io/solar/north-dakota/): 11.0¢/kWh, 4.5 peak sun hrs, est. payback 17.2 yr, 25-yr net savings $15,414 (avg home, cash).
+- [Washington](https://worthcrunchhq.github.io/solar/washington/): 11.0¢/kWh, 3.5 peak sun hrs, est. payback 21 yr, 25-yr net savings $8,246 (avg home, cash).
 
 ## Notes
 - Estimates use state-average electricity rates and peak sun hours; all assumptions are editable
