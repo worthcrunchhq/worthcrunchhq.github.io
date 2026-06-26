@@ -170,7 +170,8 @@ function hub() {
 ${tr}
 </tbody>
 </table>
-<p class="small muted" style="margin-top:12px">More states added regularly. <a href="/">Run your exact numbers in the calculator →</a></p>
+<p class="small muted" style="margin-top:12px">All 50 states + DC. <a href="/">Run your exact numbers in the calculator →</a></p>
+<p class="small muted">📊 Free open dataset (CC BY 4.0): <a href="/data/solar-by-state-2026.json">2026 solar cost &amp; payback by state (JSON)</a> — reuse with attribution.</p>
 </div>
 <div class="card" style="margin-top:20px">
 <h2 style="margin-top:0">Solar guides</h2>
@@ -245,3 +246,29 @@ urls.forEach(u => console.log("  " + u));
 fs.writeFileSync(path.join(__dirname, "state-urls.json"), JSON.stringify(urls, null, 2));
 fs.writeFileSync(path.join(__dirname, "..", "llms.txt"), llmsTxt());
 console.log("wrote llms.txt");
+
+// Open dataset — per-state 2026 solar economics (citable/reusable; attracts links honestly)
+const dataset = {
+  title: "2026 U.S. Solar Payback & Cost by State",
+  description: "Estimated home-solar cost, payback period and 25-year savings for an average home (" +
+    EXAMPLE_USAGE + " kWh/yr, cash purchase, average shading), modeled for 2026 after the federal " +
+    "residential tax credit (Section 25D) expired for systems placed in service after 2025-12-31.",
+  source: "WorthCrunch — https://worthcrunchhq.github.io/",
+  asOf: "2026",
+  license: "CC BY 4.0 — free to use with attribution to WorthCrunch (link back appreciated)",
+  assumptions: { costPerWatt: S.DEFAULTS.costPerWatt, derate: S.DEFAULTS.derate,
+    elecInflation: S.DEFAULTS.elecInflation, degradation: S.DEFAULTS.degradation, years: S.DEFAULTS.years,
+    federalCreditCashLoan2026: 0 },
+  states: Object.keys(S.STATE_DATA).map(code => {
+    const [psh, rate] = S.STATE_DATA[code];
+    const r = S.calculate({ state: code, peakSunHours: psh, rate, annualUsageKwh: EXAMPLE_USAGE,
+      shading: "average", method: "cash", costPerWatt: S.DEFAULTS.costPerWatt, otherIncentives: 0 });
+    return { code, name: S.STATE_NAMES[code], electricityRateUsdPerKwh: rate, peakSunHours: psh,
+      systemSizeKw: Math.round(r.systemKw*10)/10, grossCostUsd: Math.round(r.grossCost),
+      paybackYears: r.paybackYear ? Math.round(r.paybackYear*10)/10 : null,
+      savings25yrUsd: Math.round(r.netLifetime), url: `${BASE}/solar/${slug(S.STATE_NAMES[code])}/` };
+  })
+};
+fs.mkdirSync(path.join(__dirname, "..", "data"), { recursive: true });
+fs.writeFileSync(path.join(__dirname, "..", "data", "solar-by-state-2026.json"), JSON.stringify(dataset, null, 2));
+console.log("wrote data/solar-by-state-2026.json");
