@@ -36,6 +36,15 @@ function relatedLinks(code, names) {
     `<a href="../${slug(names[c])}/">${names[c]}</a>`).join(" · ");
 }
 
+// Full state index — links EVERY state from every page, maximizing crawl paths to un-indexed pages.
+function allStatesNav(prefix) {
+  const links = Object.keys(S.STATE_DATA)
+    .sort((a, b) => S.STATE_NAMES[a].localeCompare(S.STATE_NAMES[b]))
+    .map(c => `<a href="${prefix}${slug(S.STATE_NAMES[c])}/">${S.STATE_NAMES[c]}</a>`).join(" · ");
+  return `<nav class="small muted" aria-label="Solar by state" style="margin-top:28px;line-height:2">` +
+         `<strong>Solar cost &amp; payback by state:</strong> ${links}</nav>`;
+}
+
 function page(code) {
   const [psh, rate] = S.STATE_DATA[code];
   const name = S.STATE_NAMES[code];
@@ -129,6 +138,7 @@ ${faq.map(([q,a])=>`<h3>${q}</h3><p>${a}</p>`).join("\n")}
 
 <p class="small muted">Estimates only, not financial advice. Figures use state-average data and the assumptions on our <a href="/#how">methodology</a>. Always confirm with itemized local quotes.</p>
 <p class="small">Compare nearby states: ${relatedLinks(code, S.STATE_NAMES)}</p>
+${allStatesNav("../")}
 </main>
 <footer class="site"><div class="wrap"><p class="small"><a href="/">Calculator</a> · <a href="../">Solar by state</a> · <a href="/about.html">About</a> · © 2026 WorthCrunch.</p></div></footer>
 </body></html>`;
@@ -181,6 +191,7 @@ ${tr}
 </ul>
 </div>
 <p class="small muted">Estimates only, not financial advice. Based on state-average data; confirm with local quotes.</p>
+${allStatesNav("")}
 </main>
 <footer class="site"><div class="wrap"><p class="small"><a href="/">Calculator</a> · <a href="/about.html">About</a> · © 2026 WorthCrunch.</p></div></footer>
 </body></html>`;
