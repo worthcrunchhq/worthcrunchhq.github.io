@@ -19,6 +19,17 @@ const PUBLISH = Object.keys(S.STATE_DATA);  // all 50 states + DC
 
 const slug = name => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+// Precompute each state's national payback rank (unique per-page data → differentiation + reader value)
+const _rankList = Object.keys(S.STATE_DATA).map(c => {
+  const [psh, rate] = S.STATE_DATA[c];
+  const r = S.calculate({ state: c, peakSunHours: psh, rate, annualUsageKwh: EXAMPLE_USAGE,
+    shading: "average", method: "cash", costPerWatt: S.DEFAULTS.costPerWatt, otherIncentives: 0 });
+  return { c, pb: r.paybackYear == null ? 999 : r.paybackYear };
+}).sort((a, b) => a.pb - b.pb);
+const RANK = {}; _rankList.forEach((x, i) => RANK[x.c] = i + 1);
+const TOTAL_STATES = _rankList.length;
+const MEDIAN_PB = _rankList[Math.floor(TOTAL_STATES / 2)].pb;
+
 function tiers(rate, psh, payback) {
   const rateTier = rate >= 0.22 ? "high" : rate >= 0.145 ? "above-average" : rate >= 0.12 ? "average" : "low";
   const sunTier = psh >= 5.5 ? "excellent" : psh >= 4.6 ? "good" : psh >= 4.0 ? "moderate" : "limited";
@@ -117,6 +128,7 @@ function page(code) {
 </div>
 
 <article>
+<p>Among all ${TOTAL_STATES} U.S. states and D.C., <strong>${name} ranks #${RANK[code]}</strong> for solar payback (where #1 pays off fastest) — a payback of ${pbText} versus a national median of about ${S.fmt1(MEDIAN_PB)} years. ${pb && pb < MEDIAN_PB ? `That puts ${name} on the stronger half of the country for solar economics in 2026.` : `That puts ${name} on the slower half, mainly because of its ${t.rateTier} electricity rates${psh < 4.4 ? " and limited sun" : ""}.`}</p>
 <h2>How much do solar panels cost in ${name}?</h2>
 <p>For an average ${name} home (about ${EXAMPLE_USAGE.toLocaleString()} kWh/year), a ${S.fmt1(r.systemKw)} kW system costs roughly <strong>${S.fmt$(r.grossCost)} before incentives</strong>, based on the U.S. average installed price of about $${S.DEFAULTS.costPerWatt.toFixed(2)}/watt. Because the 30% federal tax credit <a href="../federal-tax-credit-2026/">expired for 2026 purchases</a>, that gross figure is also your net cost for a cash or loan purchase in ${name} — there's no longer a federal credit to subtract. Your actual price varies with roof size, equipment, and installer, so get at least three local quotes and compare them against the estimate below.</p>
 <h2>What drives solar payback in ${name}</h2>
