@@ -87,12 +87,12 @@ function page(code) {
   return `<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Is Solar Worth It in ${name} in 2026? Cost, Payback &amp; Savings | WorthCrunch</title>
-<meta name="description" content="Is solar worth it in ${name} in 2026? Average payback ~${pbText} for a typical home. See real ${name} solar cost, system size, and 25-year savings — updated for the expired federal tax credit.">
+<title>Solar Panel Cost in ${name} (2026): Payback &amp; Is It Worth It? | WorthCrunch</title>
+<meta name="description" content="How much do solar panels cost in ${name}? About ${S.fmt$(r.grossCost)} for an average home in 2026 — with an estimated payback of ${pbText}. See real ${name} solar costs, system size, and 25-year savings. No email, updated for the expired federal tax credit.">
 <link rel="canonical" href="${BASE}/solar/${slug(name)}/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Is Solar Worth It in ${name} in 2026?">
+<meta property="og:title" content="Solar Panel Cost in ${name} (2026): Payback &amp; Is It Worth It?">
 <meta property="og:description" content="${name} solar payback ~${pbText} for a typical home. Real cost, savings &amp; the 2026 tax-credit reality.">
 <meta property="og:url" content="${BASE}/solar/${slug(name)}/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f5a623'/%3E%3C/svg%3E">
