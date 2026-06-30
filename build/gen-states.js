@@ -111,6 +111,7 @@ function page(code) {
 <main class="wrap">
 <p class="small muted"><a href="/">Home</a> › <a href="../">Solar by state</a> › ${name}</p>
 <h1>Is Solar Worth It in ${name} in 2026?</h1>
+<p class="small muted">Updated June 2026 · state-average estimates, not financial advice</p>
 <p class="lead">${verdictPara}</p>
 
 <div class="card">
