@@ -15,7 +15,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f5a623'/%3E%3Cg stroke='%23f5a623' stroke-width='8' stroke-linecap='round'%3E%3Cline x1='50' y1='6' x2='50' y2='20'/%3E%3Cline x1='50' y1='80' x2='50' y2='94'/%3E%3Cline x1='6' y1='50' x2='20' y2='50'/%3E%3Cline x1='80' y1='50' x2='94' y2='50'/%3E%3Cline x1='19' y1='19' x2='29' y2='29'/%3E%3Cline x1='71' y1='71' x2='81' y2='81'/%3E%3Cline x1='81' y1='19' x2='71' y2='29'/%3E%3Cline x1='29' y1='71' x2='19' y2='81'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/base.css">
-<style>:root{--brand-h:35}</style>
+<style>:root{--brand-h:35}
+.embed-mode header.site,.embed-mode footer.site,.embed-mode main.wrap>h1,.embed-mode main.wrap>p.lead,.embed-mode article,.embed-mode main.wrap>p.small.muted{display:none!important}
+.embed-mode .wrap{max-width:580px;padding-top:12px}
+.embed-credit{display:none;text-align:center;margin:12px 0 0;font-size:13px}
+.embed-mode .embed-credit{display:block}</style>
+<script>if(new URLSearchParams(location.search).get('embed')==='1')document.documentElement.classList.add('embed-mode');</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebApplication","name":"WorthCrunch Solar Savings Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free client-side calculator estimating solar panel cost, payback period and 25-year savings, updated for 2026 after the federal residential tax credit expired."},
@@ -89,6 +94,8 @@
     <div id="results" hidden></div>
   </div>
 
+  <p class="embed-credit">⚡ <a href="https://worthcrunchhq.github.io/" target="_blank" rel="noopener">Solar Savings Calculator by WorthCrunch</a></p>
+
   <p class="small muted">Estimates are approximate and for educational purposes only — not financial advice. Data as of 2026. Always get itemized local quotes before deciding.</p>
 
   <article id="how">
@@ -125,6 +132,15 @@
     <p>No. Everything runs in your browser. Nothing is uploaded, and there's no sign-up. You can even share your result via a link — your inputs are encoded in the URL, not saved on a server.</p>
     <h3>What's a good solar payback period?</h3>
     <p>Many homeowners aim for under ~10–12 years so the system pays for itself well within its 25+ year life. After the federal credit's expiry, watch this number closely in low-rate states.</p>
+  </article>
+
+  <article id="embed">
+    <h2>Add this calculator to your site (free)</h2>
+    <p>Run a solar, real-estate, or home blog? Embed this calculator for free — just paste this snippet. Attribution link required; that's all we ask.</p>
+    <pre style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;overflow:auto;font-size:13px"><code>&lt;iframe src="https://worthcrunchhq.github.io/?embed=1" width="100%" height="760"
+  style="border:1px solid #e6e8ec;border-radius:12px" loading="lazy"
+  title="Solar Savings Calculator by WorthCrunch"&gt;&lt;/iframe&gt;</code></pre>
+    <p class="small muted">The embedded version is chrome-free (just the calculator) and links back to WorthCrunch.</p>
   </article>
 
   <article id="by-state">
